@@ -38,3 +38,7 @@ Don't use this in Production.
 For that use mature solutions, I would recommend Next.js
 
 🥳
+
+# App Structure
+
+- Node Server Entry point: [index.js](index.js)

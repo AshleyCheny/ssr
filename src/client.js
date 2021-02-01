@@ -19,6 +19,7 @@ const store = configureStore(state)
  * react comments to identify elements and more.
  */
 
+// https://reactjs.org/docs/react-dom.html#hydrate
 hydrate(
   <Provider store={store} >
      <App />

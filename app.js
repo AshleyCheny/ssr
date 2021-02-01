@@ -22,14 +22,21 @@ let initialState = {
 
 // server rendered home page
 app.get('/', (req, res) => {
+  // use react-dom/server to get the components string: '<div class="app-card">...</div>'
   const { preloadedState, content}  = ssr(initialState)
+
+  // construct html string that includes script + components elements(server rendered)
   const response = template("Server Rendered Page", preloadedState, content)
   res.setHeader('Cache-Control', 'assets, max-age=604800')
+
+  // send html to the browser
   res.send(response);
 });
 
 // Pure client side rendered page
 app.get('/client', (req, res) => {
+  // construct html string with scripts
+  // js script will be requested in the browser to request data and render elements
   let response = template('Client Side Rendered page')
   res.setHeader('Cache-Control', 'assets, max-age=604800')
   res.send(response)
